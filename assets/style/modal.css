@@ -1,0 +1,65 @@
+/* button styles */
+.customBtn {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 0.5em;
+    display: none;
+    background-color: forestgreen;
+    color: ghostwhite;
+    border: 3px solid darkgreen;
+    border-radius: 6px;
+}
+.customBtn:hover {
+    border: 3px solid darkred;
+    background-color: orangered;
+    color: gold;
+}
+#insertBtn {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+#code {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+#success {
+    font-size: 2em;
+    font-weight: bold;
+    color: forestgreen;
+}
+
+.modal_fg a {
+    position: relative;
+    left: 33%;
+    transform: translate(-33%);
+    text-decoration: none;
+}
+.modal_bg { /* modal background */
+    display: none;
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    z-index: 4;
+    background-color: rgba(0,0,0,0.8);
+}
+.modal_fg { /* modal foreground */
+    position: absolute;
+    padding: 20px 30px;
+    margin-top: 0.5em;
+
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%); /* fixes issues with text displacement when zooming in & out */
+
+    background-color: ghostwhite;
+    border: 3px solid lightslategrey;
+    border-radius: 6px;
+    text-align: center;
+}
+
+ol {
+    text-align: left;
+}

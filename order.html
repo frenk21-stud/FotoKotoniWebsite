@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Foto Kotoni</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/style/main.css">
+        <link rel="stylesheet" href="assets/style/order.css">
+        <link rel="stylesheet" href="assets/style/modal.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <span>FOTO KOTONI</span>
+                <li><a href="wishlist.html">Wishlist</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+
+        <h1>Complete this form to place an order.</h1>
+        <form id="orderForm">
+            <div>
+                <span class="asterisk">*</span><label for="nameInput">Full Name: </label>
+                <input type="text" id="nameInput" name="nameInput" placeholder="Enter your full name."><br>
+                <span id="errorMsg1"></span>    
+            </div>
+            <div>
+                <span class="asterisk">*</span><label for="emailInput">Email: </label>
+                <input type="text" id="emailInput" name="emailInput" placeholder="Enter your email address."><br>
+                <span id="errorMsg2"></span>
+            </div>
+            <div>
+                <span class="asterisk">*</span><label for="articleMenu">Article: </label>
+                <select id="articleMenu" name="articleMenu" onchange="calcPrice()">
+                    <option value="none">None</option>
+                    <option value="photo_doc">Document Photo</option>
+                    <option value="photo_stud">Studio Photo</option>
+                    <option value="photo_email">Email Photo</option>
+                    <option value="photo_10x15">10x15 Photo</option>
+                    <option value="photo_13x18">13x18 Photo</option>
+                    <option value="photo_15x20">15x20 Photo</option>
+                    <option value="photo_20x25">20x25 Photo</option>
+                    <option value="photo_20x30">20x30 Photo</option>
+                    <option value="photo_30x40">30x40 Photo</option>
+                    <option value="photo_scan">Photo Scan</option>
+                    <option value="photo_repair">Photo Repair</option>
+                    <option value="photo_bg">Background Change</option>
+                    <option value="photo_edit">Photo Edit</option>
+                    <option value="photo_copy_bw">Photo Copy (black & white)</option>
+                    <option value="photo_copy_col">Photo Copy (in color)</option>
+                </select><br>
+                <span id="errorMsg3"></span>
+            </div>
+            <div>
+                <label for="numInput">Quantity: </label>
+                <input type="number" id="numInput" name="numInput" min="1" max="20" value="1" onchange="calcPrice()">
+                <label for="priceInput">&nbsp;&nbsp;Price: </label>
+                <input type="text" id="priceInput" name="priceInput" readonly>
+            </div>
+            <div>
+                <label for="descInput">Description: </label><br>
+                <textarea id="descInput" name="descInput" rows="5" cols="30" placeholder="Enter additional details about your order, to assure no mistakes are made."></textarea>
+            </div>
+            <span id="warning">* Required Attribute</span>
+            <div id="btnContainer"><button id="orderBtn" onclick="verifyForm(event)">Place Order</button></div>
+        </form>
+
+        <div class="modal_bg">
+            <div class="modal_fg">
+                <span id="success">Success!</span><br>
+                Order information has been added to the Local Storage.<br>
+                Before proceeding with anything else, follow these steps:<br>
+                <ol>
+                    <li>Press <span id="code">F12</span>.</li>
+                    <li>Go to <span id="code">Console</span>.</li>
+                    <li>Type <span id="code">localStorage.getItem('newOrder')</span>.</li>
+                    <li>Copy the output. This will be useful later.</li>
+                    <li>Go to the Wishlist, and repeat Steps 1-2.</li>
+                    <li>Type <span id="code">localStorage.setItem('newOrder','pasteinfo')</span>.
+                    <br>Replace <span id="code">'pasteinfo'</span> with the previously copied info.</li>
+                </ol>
+                <input type="checkbox" id="check" name="check" onclick="handleCheckbox()">
+                <label for="check">I have understood these steps.</label><br>
+                <a href="wishlist.html"><button id="wishBtn" class="customBtn">Go to Wishlist</button></a>
+            </div>
+        </div>
+
+        <footer>
+            <span>&copy; <span id="currYear"></span> Foto Kotoni. All Rights Reserved.</span>
+        </footer>
+
+        <script src="assets/script/main.js"></script>
+    </body>
+</html>
